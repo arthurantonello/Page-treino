@@ -6,8 +6,20 @@
 }
 
 *{
-    font: 400 1em Verdana, Geneva, Tahoma, sans-serif;
+    font: var(--fonte-padrao);
     margin: 0px;
+    padding: 0px;
+}
+
+:root{ /* Pseudo-classe que permite a declaração de variáveis globais */
+    --cor0: #C5EBD6;
+    --cor1: #60E29A;
+    --cor2: #2FA866;
+    --cor3: #134429;
+
+    --fonte-padrao: 400 1em Verdana, Geneva, Tahoma, sans-serif;
+    --fonte-destaque:'Bebas Neue', cursive;
+    --fonte-android: "Idroid", cursive;
 }
 
 
@@ -22,12 +34,12 @@ header{
     min-width: 89vw;
     padding: 20px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.521);
-    background-image: linear-gradient(to bottom, #60E29A,#195634);
+    background-image: linear-gradient(to bottom, var(--cor1),#195634);
 }
 
 header > h1{
     font-size: 4em;
-    font-family:'Bebas Neue', cursive;
+    font-family: var(--fonte-destaque);
     padding: 20px;
 }
 
@@ -46,7 +58,15 @@ nav > a{
     font-weight: bold;
     color: white;
     text-decoration: none;
-    margin-right: 2vh;
+    padding: 1vh;
+}
+
+
+nav > a:hover{
+    color: var(--cor1);
+    background-color: var(--cor3);
+    border-radius: 8px;
+    transition: 250ms linear;
 }
 
 /* Conteúdo */
@@ -64,18 +84,18 @@ p{
     text-align: justify;
     text-indent: 1em;
     margin-top: 2vh;
-    margin-bottom: 2vh;
+    margin-bottom: 5vh;
     font-size: 1.2em;
 }
 
 .destaque{
-    color:#134429;
+    color:var(--cor3);
     font-weight: bold;
 }
 
 .link{
     text-decoration: none;
-    color: #134429;
+    color: var(--cor3);
     font-weight: bold;
 }
 
@@ -87,16 +107,16 @@ p{
 }
 
 .conteudo > h1{
-    font-family: 'Idroid', sans-serif;
+    font-family: var(--fonte-android), sans-serif;
     font-size: 3em;
-    color: #134429;
+    color: var(--cor3);
 }
 
 .conteudo > h2{
-    font-family:"Idroid", sans-serif;
+    font-family: var(--fonte-android), sans-serif;
     font-size: 2em;
-    color: #134429;
-    background-image: linear-gradient(to right,#60E29A, #ffffff00);
+    color: var(--cor3);
+    background-image: linear-gradient(to right,var(--cor1), #ffffff00);
 }
 
 picture > img{
@@ -109,15 +129,17 @@ picture > img{
 #video{
     display: flex;
     justify-content: center;
+    border-radius: 15px;
     max-width: 100%;
-    padding: 10px;
-    background-color: #134429;
+    padding: 30px;
+    margin: 0px -24px 0px -24px;
+    background-color: var(--cor3);
 }
 
 /* Extra */
 .extra{
     text-align: left;
-    background-color:#C5EBD6;
+    background-color:var(--cor1);
     margin-top: 2vh;
     margin-bottom: 2vh;
     border-radius: 15px;
@@ -128,7 +150,7 @@ picture > img{
     font-size: 1.5em;
     padding: 3vh;
     color: white;
-    background-color: #2FA866;
+    background-color: var(--cor2);
     border-radius: 15px 15px 0px 0px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.521);
 }
@@ -136,16 +158,17 @@ picture > img{
 .extra > #extra-conteudo {padding: 2vw;}
 
 #extra-conteudo > ul{
+    list-style-position: inside;
+    columns: 2;
     display: block;
     max-height: 50%;
+    margin-bottom: 4vh;
 }
 
-#extra-conteudo > ul > li{
-    list-style-type: none; /* remove a bolinha de marcação */
+#extra-conteudo li{
+    list-style-type: "\2714 \0020 \0020"; /* costomiza o marcador */
     margin-top: 0.5vh;
 }
-
-#extra-conteudo > ul > li::before{content: "✔ ";}
 
 li > a{
     color: black;
@@ -156,7 +179,7 @@ footer{
     text-align: center;
     font-size: min(5vh, 15px);
     color:#338659;
-    background-color:#134429;
+    background-color:var(--cor3);
     padding: 10px;
 }
 
